@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _run_state() -> void:
 	while true:
-		var direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
+		var direction = Vector2(rng.randf_range(-1.0, 1.0), rng.randf_range(-1.0, 1.0)).normalized()
 		velocity = direction * walk_speed
 		await get_tree().create_timer(3.0).timeout
 

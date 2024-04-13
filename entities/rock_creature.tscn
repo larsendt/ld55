@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7ggayy0rif3q"]
+
+[ext_resource type="Script" path="res://entities/rock_creature.gd" id="1_ckku8"]
+[ext_resource type="PackedScene" uid="uid://cn57m23mxo1q7" path="res://assets/rock_creature.aseprite" id="1_j5sum"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0tykh"]
+radius = 8.0
+height = 20.0
+
+[node name="RockCreature" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_ckku8")
+
+[node name="RockCreatureSprite" parent="." instance=ExtResource("1_j5sum")]
+position = Vector2(2, -8)
+animation = &"Walking"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -3)
+shape = SubResource("CapsuleShape2D_0tykh")

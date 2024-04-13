@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const WALK_SPEED = 50.0
-const SUMMON_WALK_SPEED = 25.0
+const SUMMON_WALK_SPEED = 5.0
 const SUMMONING_TIME = 5.0
 
 var summoning_progress = 0.0
