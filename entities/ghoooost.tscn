@@ -9,7 +9,7 @@ height = 16.0
 
 [node name="Ghoooost" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 6
+collision_mask = 22
 script = ExtResource("1_2ummn")
 
 [node name="GhostSprite" parent="." instance=ExtResource("1_2ggig")]
