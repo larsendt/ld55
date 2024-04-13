@@ -9,8 +9,15 @@ var summoning_progress = 0.0
 @onready var Ghost: PackedScene = preload("res://entities/ghoooost.tscn")
 
 
+func _ready() -> void:
+	$PickupArea.area_entered.connect(self._do_pickup)
+
+
 func _physics_process(delta: float) -> void:
-	var summoning = Input.is_action_pressed("summon")
+	var summoning = false
+
+	if Input.is_action_pressed("summon") && State.player_soul_tokens > 0:
+		summoning = true
 
 	var x = 0
 	if Input.is_action_pressed("move_left"):
@@ -51,6 +58,7 @@ func _physics_process(delta: float) -> void:
 		ghost.global_position = global_position + Vector2(-20.0, 0.0)
 		get_parent().get_node("Minions").add_child(ghost)
 		summoning_progress = 0.0
+		State.player_soul_tokens -= 1
 
 	var walk_speed = WALK_SPEED
 	if summoning:
@@ -58,3 +66,8 @@ func _physics_process(delta: float) -> void:
 
 	velocity = Vector2(x, y) * walk_speed
 	move_and_slide()
+
+
+func _do_pickup(area: Area2D):
+	State.player_soul_tokens += 1
+	area.get_parent().queue_free()
