@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://3ojowfa83thw"]
+
+[ext_resource type="Script" path="res://entities/progress_bar.gd" id="1_bbrwu"]
+[ext_resource type="PackedScene" uid="uid://c8nfvpcyh02us" path="res://assets/progress_bar.aseprite" id="1_g3saq"]
+
+[node name="ProgressBar" type="Node2D"]
+position = Vector2(0, -1)
+script = ExtResource("1_bbrwu")
+
+[node name="Sprite" parent="." instance=ExtResource("1_g3saq")]
+position = Vector2(0, 1)

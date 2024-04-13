@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp4rd0p8a47pn"]
+
+[ext_resource type="PackedScene" uid="uid://dqnflexw6d7pl" path="res://assets/ghoooost.aseprite" id="1_2ggig"]
+[ext_resource type="Script" path="res://entities/ghoooost.gd" id="1_2ummn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m72b6"]
+radius = 5.0
+height = 16.0
+
+[node name="Ghoooost" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 6
+script = ExtResource("1_2ummn")
+
+[node name="GhostSprite" parent="." instance=ExtResource("1_2ggig")]
+position = Vector2(1, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_m72b6")
